@@ -1,19 +1,18 @@
 import { Component } from "react";
 
-import "./App.css";
+import data from "./data";
+import { List } from "./components";
 
-import "./components";
-import { Item, List } from "./components";
+import "./App.css";
 
 class App extends Component {
   render() {
     return (
-      <div class="App">
+      <div className="App">
         <header className="App-header">
-          {this.state.x}
           {/* Mon commentaire */}
           {console.log("test")}
-          <List />
+          <List data={data} />
         </header>
       </div>
     );
