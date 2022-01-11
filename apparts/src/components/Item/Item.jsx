@@ -1,8 +1,10 @@
+import PropTypes from "prop-types";
+
 import "./Item.css";
 
 const Item = ({ title = "", status = false, children }) => {
   return (
-    <div>
+    <li>
       <h2>
         {title}{" "}
         <span
@@ -10,8 +12,14 @@ const Item = ({ title = "", status = false, children }) => {
         ></span>
       </h2>
       <p>{children}</p>
-    </div>
+    </li>
   );
+};
+
+Item.propTypes = {
+  title: PropTypes.string,
+  status: PropTypes.bool,
+  children: PropTypes.node,
 };
 
 export default Item;
