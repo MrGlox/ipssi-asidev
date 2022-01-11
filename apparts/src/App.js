@@ -1,10 +1,10 @@
 import { Component } from "react";
 
-import data from "./data";
-import { List } from "./components";
-import Clock from "./containers/Clock";
+import data from "data";
+import { List } from "components";
+import Clock from "containers/Clock";
 
-import "./App.css";
+import "App.css";
 
 class App extends Component {
   render() {

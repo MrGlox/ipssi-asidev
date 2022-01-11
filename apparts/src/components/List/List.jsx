@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import Item from "../Item/Item";
+import { Item } from "components";
 
 const List = ({ data = [] }) => (
   <ul>
