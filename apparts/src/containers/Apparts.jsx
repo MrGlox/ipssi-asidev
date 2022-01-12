@@ -27,14 +27,14 @@ class Apparts extends Component {
 
     return (
       <div className="App">
-        <header className="App-header">
+        <main className="App-main">
           <Form handleChange={handleChange.bind(this)} value={value} />
           {filtered.length === 0 ? (
             "Appart not found"
           ) : (
             <List data={filtered} />
           )}
-        </header>
+        </main>
       </div>
     );
   }

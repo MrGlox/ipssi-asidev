@@ -1,9 +1,12 @@
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import Layout from "layout/Main";
+
 import Home from "routes/Home";
 import Apparts from "routes/Apparts";
 import Clock from "routes/Clock";
+import Fetch from "routes/Fetch";
 
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
@@ -11,9 +14,12 @@ import "./index.css";
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
-      <Route index element={<Home />} />
-      <Route path="apparts" element={<Apparts />} />
-      <Route path="clock" element={<Clock />} />
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="apparts" element={<Apparts />} />
+        <Route path="clock" element={<Clock />} />
+        <Route path="fetch" element={<Fetch />} />
+      </Route>
     </Routes>
   </BrowserRouter>,
   document.getElementById("root")
