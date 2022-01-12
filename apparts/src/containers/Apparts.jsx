@@ -1,43 +1,39 @@
-import { Component } from "react";
+import { useState } from "react";
 
 import data from "../data";
 import { Form, List } from "components";
 
 import "styles/App.css";
 
-class Apparts extends Component {
-  state = { value: "", filtered: data };
+const Apparts = () => {
+  const [
+    value, // getter
+    setValue, // setter
+  ] = useState(
+    "" // Valeur par défaut
+  );
 
-  handleChange(ev) {
+  const [filtered, setFiltered] = useState(data);
+
+  const handleChange = (ev) => {
     const { value } = ev.target;
 
-    this.setState({
-      value,
-      filtered: data.filter((appart) =>
+    setValue(value);
+    setFiltered(
+      data.filter((appart) =>
         appart.title.toLowerCase().includes(value.toLowerCase())
-      ),
-    });
-  }
-
-  render() {
-    const {
-      handleChange,
-      state: { value, filtered },
-    } = this;
-
-    return (
-      <div className="App">
-        <main className="App-main">
-          <Form handleChange={handleChange.bind(this)} value={value} />
-          {filtered.length === 0 ? (
-            "Appart not found"
-          ) : (
-            <List data={filtered} />
-          )}
-        </main>
-      </div>
+      )
     );
-  }
-}
+  };
+
+  return (
+    <div className="App">
+      <main className="App-main">
+        <Form handleChange={handleChange} value={value} />
+        {filtered.length === 0 ? "Appart not found" : <List data={filtered} />}
+      </main>
+    </div>
+  );
+};
 
 export default Apparts;
