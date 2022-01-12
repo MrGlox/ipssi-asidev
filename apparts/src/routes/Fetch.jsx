@@ -1,36 +1,36 @@
-import { Component } from "react";
+import { useEffect, useState } from "react";
 import { Loader } from "components";
 
-class Fetch extends Component {
-  state = { data: [], isLoading: true, hasError: false };
+const Fetch = () => {
+  const [data, setData] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+  const [hasError, setError] = useState(false);
 
-  async fetchAPI() {
+  const fetchAPI = async () => {
     try {
       const response = await fetch(
         "https://baconipsum.com/api/?type=mand-filler"
       );
 
       const data = await response.json();
-      this.setState({ data, isLoading: false }); // equivalent data: data
+      setData(data);
+      setLoading(false);
     } catch (err) {
       console.error(err);
-      this.setState({ hasError: true, isLoading: false });
+      setError(true);
+      setLoading(false);
       throw err;
     }
-  }
+  };
 
-  componentDidMount() {
-    this.fetchAPI();
-  }
+  useEffect(() => {
+    fetchAPI();
+  }, []);
 
-  render() {
-    const { hasError, isLoading, data } = this.state;
+  if (isLoading) return <Loader />;
+  if (hasError) return <div>Erreur au fetch</div>;
 
-    if (isLoading) return <Loader />;
-    if (hasError) return <div>Erreur au fetch</div>;
-
-    return <div>{data}</div>;
-  }
-}
+  return <div>{data}</div>;
+};
 
 export default Fetch;
