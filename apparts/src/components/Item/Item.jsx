@@ -4,7 +4,7 @@ import "./Item.css";
 
 const Item = ({ title = "", status = false, children }) => {
   return (
-    <Item>
+    <li>
       <h2>
         {title}{" "}
         <span
@@ -12,7 +12,7 @@ const Item = ({ title = "", status = false, children }) => {
         ></span>
       </h2>
       <p>{children}</p>
-    </Item>
+    </li>
   );
 };
 
