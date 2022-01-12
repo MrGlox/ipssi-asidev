@@ -6,7 +6,7 @@ const Item = ({ title = "", status = false, children }) => {
   return (
     <li>
       <h2>
-        {title}{" "}
+        {typeof title === "string" ? title : null}{" "}
         <span
           className={`status ${status ? "status--green" : "status--red"}`}
         ></span>
