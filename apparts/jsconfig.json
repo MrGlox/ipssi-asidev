@@ -5,7 +5,8 @@
           "components/*": ["./components"],
           "containers/*": ["./containers"],
           "contexts/*": ["./contexts"],
-          "pages/*": ["./pages"],
+          "routes/*": ["./routes"],
+          "styles/*": ["./styles"],
           "tests/*": ["./tests"]
         }
     },

@@ -1,13 +1,11 @@
 import { Component } from "react";
 
-import data from "data";
+import data from "../data";
 import { Form, List } from "components";
 
-import Clock from "containers/Clock";
+import "styles/App.css";
 
-import "App.css";
-
-class App extends Component {
+class Apparts extends Component {
   state = { value: "", filtered: data };
 
   handleChange(ev) {
@@ -30,7 +28,6 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Clock />
           <Form handleChange={handleChange.bind(this)} value={value} />
           {filtered.length === 0 ? (
             "Appart not found"
@@ -43,4 +40,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Apparts;
