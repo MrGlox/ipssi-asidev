@@ -5,6 +5,7 @@ import Layout from "layout/Main";
 
 import Home from "routes/Home";
 import Apparts from "routes/Apparts";
+import Appart from "routes/Appart";
 import Clock from "routes/Clock";
 import Fetch from "routes/Fetch";
 
@@ -16,7 +17,10 @@ ReactDOM.render(
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="apparts" element={<Apparts />} />
+        <Route path="apparts">
+          <Route index element={<Apparts />} />
+          <Route path=":slug" element={<Appart />} />
+        </Route>
         <Route path="clock" element={<Clock />} />
         <Route path="fetch" element={<Fetch />} />
       </Route>

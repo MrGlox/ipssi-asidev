@@ -1,15 +1,17 @@
 import PropTypes from "prop-types";
-
-import "./Item.css";
+import { Link } from "react-router-dom";
+import { lowerSlugify } from "utils";
 
 const Item = ({ title = "", status = false, children }) => {
   return (
     <li>
       <h2>
-        {typeof title === "string" ? title : null}{" "}
-        <span
-          className={`status ${status ? "status--green" : "status--red"}`}
-        ></span>
+        <Link to={`/apparts/${lowerSlugify(title)}`}>
+          {typeof title === "string" ? title : null}{" "}
+          <span
+            className={`status ${status ? "status--green" : "status--red"}`}
+          ></span>
+        </Link>
       </h2>
       <p>{children}</p>
     </li>
@@ -17,6 +19,7 @@ const Item = ({ title = "", status = false, children }) => {
 };
 
 Item.propTypes = {
+  id: PropTypes.number,
   title: PropTypes.string,
   status: PropTypes.bool,
   children: PropTypes.node,
