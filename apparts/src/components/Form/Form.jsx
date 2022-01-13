@@ -1,7 +1,8 @@
-const Form = ({ handleChange, value }) => (
+const Form = ({ handleChange, handleClear, value }) => (
   <>
-    <input onChange={handleChange} defaultValue={value} type="text" />
+    <input onChange={handleChange} value={value} type="text" />
     <p>{value}</p>
+    <button onClick={handleClear}>clear</button>
   </>
 );
 

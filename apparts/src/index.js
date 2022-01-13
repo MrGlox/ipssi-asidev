@@ -10,23 +10,30 @@ import Clock from "routes/Clock";
 import Fetch from "routes/Fetch";
 import ToDo from "routes/ToDo";
 
+import { MainProvider } from "contexts/Main";
+import { ModalProvider } from "contexts/Modal";
+
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 
 ReactDOM.render(
   <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="apparts">
-          <Route index element={<Apparts />} />
-          <Route path=":slug" element={<Appart />} />
-        </Route>
-        <Route path="clock" element={<Clock />} />
-        <Route path="fetch" element={<Fetch />} />
-        <Route path="todo" element={<ToDo />} />
-      </Route>
-    </Routes>
+    <ModalProvider>
+      <MainProvider>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="apparts">
+              <Route index element={<Apparts />} />
+              <Route path=":slug" element={<Appart />} />
+            </Route>
+            <Route path="clock" element={<Clock />} />
+            <Route path="fetch" element={<Fetch />} />
+            <Route path="todo" element={<ToDo />} />
+          </Route>
+        </Routes>
+      </MainProvider>
+    </ModalProvider>
   </BrowserRouter>,
   document.getElementById("root")
 );
