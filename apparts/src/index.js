@@ -8,6 +8,7 @@ import Apparts from "routes/Apparts";
 import Appart from "routes/Appart";
 import Clock from "routes/Clock";
 import Fetch from "routes/Fetch";
+import ToDo from "routes/ToDo";
 
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
@@ -23,6 +24,7 @@ ReactDOM.render(
         </Route>
         <Route path="clock" element={<Clock />} />
         <Route path="fetch" element={<Fetch />} />
+        <Route path="todo" element={<ToDo />} />
       </Route>
     </Routes>
   </BrowserRouter>,

@@ -20,6 +20,9 @@ const Main = () => (
           <li>
             <Link to="/fetch">Fetch</Link>
           </li>
+          <li>
+            <Link to="/todo">Todo</Link>
+          </li>
         </ul>
       </nav>
     </header>
