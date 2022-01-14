@@ -2,6 +2,9 @@ import React from "react";
 import StyledButton from "./Button.styled";
 
 interface ButtonProps {
+  /**
+   * Styled system feature to edit the html tag
+   */
   as?: string;
   /**
    * Is this the principal call to action on the page?

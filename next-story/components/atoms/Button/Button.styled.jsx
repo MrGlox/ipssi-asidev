@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { space } from "styled-system";
 
 const StyledButton = styled.button`
   font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -41,6 +42,8 @@ const StyledButton = styled.button`
       font-size: 16px;
       padding: 12px 24px;
     `}
+
+  ${space}
 `;
 
 export default StyledButton;
