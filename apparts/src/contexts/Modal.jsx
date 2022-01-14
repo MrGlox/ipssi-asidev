@@ -1,31 +1,17 @@
 import { createContext, useState } from "react";
-import data from "../data";
 
-const ModalContext = createContext({});
+const ModalContext = createContext([false, () => {}]);
 
 const ModalProvider = ({ children }) => {
   const [
-    value, // getter
-    setValue, // setter
+    open, // getter
+    setOpen, // setter
   ] = useState(
-    "" // Valeur par défaut
+    false // Valeur par défaut
   );
 
-  const [filtered, setFiltered] = useState(data);
-
-  const handleChange = (ev) => {
-    const { value } = ev.target;
-
-    setValue(value);
-    setFiltered(
-      data.filter((appart) =>
-        appart.title.toLowerCase().includes(value.toLowerCase())
-      )
-    );
-  };
-
   return (
-    <ModalContext.Provider value={{ value, handleChange, filtered }}>
+    <ModalContext.Provider value={[open, setOpen]}>
       {children}
     </ModalContext.Provider>
   );

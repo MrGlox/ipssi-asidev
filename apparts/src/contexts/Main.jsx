@@ -1,7 +1,12 @@
 import { createContext, useState } from "react";
 import data from "../data";
 
-const MainContext = createContext({});
+const MainContext = createContext({
+  value: "",
+  handleChange: () => {},
+  handleClear: () => {},
+  filtered: data,
+});
 
 const MainProvider = ({ children }) => {
   const [

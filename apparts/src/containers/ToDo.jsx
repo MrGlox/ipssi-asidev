@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { TodoForm, TodoList } from "components";
 
 const ToDo = () => {
+  const navigate = useNavigate();
+
   const [list, setList] = useState(
     JSON.parse(localStorage.getItem("list")) || []
   );
@@ -29,14 +32,16 @@ const ToDo = () => {
   };
 
   useEffect(() => {
+    // componentDidMount et componentDidUpdate
     localStorage.setItem("list", JSON.stringify(list));
-  });
+  }, [list]);
 
   return (
     <>
       <TodoForm onSubmit={handleSubmit} />
       <button onClick={handleClear}>clear</button>
       <TodoList list={list} handleComplete={handleComplete} />
+      <button onClick={() => navigate("/apparts")}>Go previous page</button>
     </>
   );
 };
